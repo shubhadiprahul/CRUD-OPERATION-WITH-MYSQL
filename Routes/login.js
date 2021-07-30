@@ -12,8 +12,8 @@ module.exports = (app, jwt, knex) =>{
                 if (data.length>0){
                     // console.log(`data is showing......`)
                     if (data[0].password === req.body.password){
-                        console.log(data[0].password)
-                        console.log(`running status.....`)
+                        var token = jwt.sign({"id":data[0].id,"password" : data[0].password, "name": data[0].name,"email": data[0].email},"shubh")
+                        res.cookie("key", token)
                         console.log({"Login success!": data});
                         res.send({"Login success!": "thank you "});
                     }else{
