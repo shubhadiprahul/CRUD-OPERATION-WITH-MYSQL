@@ -12,7 +12,6 @@ var signup = express.Router();
 app.use("/",signup);
 require("./Routes/signup")(signup,jwt,knex);
 
-
 // route to login.js
 var login = express.Router();
 app.use("/", login);
